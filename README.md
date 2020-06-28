@@ -33,7 +33,6 @@ Skill level 2:  Professional Agile software development team facilitator
 Skill level 3:  Author of Agile topics  
 Motivation:  Provide students a welcoming, unintimidating and easy-to-use means to share details about themselves and self-organize into teams that I can reference as a single source for student and team information.  
 Frustrations:  Existing tooling is not user friendly for both Instructors and students.  Students come to me with questions where answers could be provided upfront in the course.  
-Desires/wants/needs:  
 
 **User Persona for Student (fictional):**  
 Name: Julia  

@@ -6,11 +6,11 @@ A tool for students to self-organize into effective agile teams
 
 
 **Roster:**  
-Product owner/Developer:  Sri Vatsavai,  srv610@g.harvard.edu  
-Scrum master/Developer:  Eric Laribee,  erl235@g.harvard.edu  
-Developer:  Alfred Joseph,  josephalfred@gmail.com  
-Developer:  Michael Haak,  mhaak@g.harvard.edu  
-Developer:  Elias Falconi,  eliasfalconi@msn.com  
+Product owner/Developer:  Sri Vatsavai
+Scrum master/Developer:  Eric Laribee
+Developer:  Alfred Joseph
+Developer:  Michael Haak
+Developer:  Elias Falconi
 
 **Product Name:** Teamify
 
@@ -18,10 +18,18 @@ Developer:  Elias Falconi,  eliasfalconi@msn.com
 
 **Near Vision:** A tool for students to self-organize into effective agile teams
 
+Today, when course instructors\
+Want to allow students to form their own teams\
+They have to let students figure out the team-formation process as well as their teams\
+This is unacceptable, because ad hoc processes are opaque, slow, and may result in unbalanced teams, resulting in student anxiety and suboptimal team products\
+We envision a world where team building is balanced, easy, fast, and transparent\
+We’re bringing this world about through an online app to manage the team formation process.
+
 **Stakeholder Types:**  
 Agile course students  
 Agile course instructors  
-Developer in an Agile organization  
+Developer in an Agile organization\
+Line manager in an Agile organization
 
 **User Persona for Richard Kasperowski (real person):**  
 Name:  Richard  
@@ -34,7 +42,7 @@ Skill level 3:  Author of Agile topics
 Motivation:  Provide students a welcoming, unintimidating and easy-to-use means to share details about themselves and self-organize into teams that I can reference as a single source for student and team information.  
 Frustrations:  Existing tooling is not user friendly for both Instructors and students.  Students come to me with questions where answers could be provided upfront in the course.  
 
-**User Persona for Student (fictional):**  
+**User Personae for Students (fictional):**  
 Name: Julia  
 Role: Student  
 Age: 23  
@@ -44,7 +52,20 @@ Skill level 2: Experienced in programming languages (Java, Python)
 Skill level 3:  
 Motivation: To get on a team with others who have complementary skills.  
 Frustrations: Doesn’t know what skills will actually be needed, and doesn’t know who has them. Is intimidated by the process of meeting new people in the class and wants the process to be standardized and easy.   
-Desires/wants/needs: Some team project suggestions with the skills required.  A way to see who has skills that complement hers so she can form a team with them to have a successful project.  A way of knowing what teams are forming and looking for new members.   
+Desires/wants/needs: Some team project suggestions with the skills required.  A way to see who has skills that complement hers so she can form a team with them to have a successful project.  A way of knowing what teams are forming and looking for new members.
+
+Name: Lindy\
+Role: Student\
+Age: 36\
+Gender: Male\
+Motivation: To get a team fast, so he can start working on the assignment quickly.\
+Frustrations: Doesn’t know anyone else in the class.  Doesn’t know who is already on a team, or who is actively looking.\
+Desires/wants/needs: A quick way to tell who to get in touch with to form a team and the best way to get in touch with them.
+
+Name: Emmet Otter\
+Motivation: To learn as much as possible\
+Frustrations: Doesn’t know who has talent or skills or experience in the things she wants to learn about.\
+Desires/wants/needs: A match-maker to pair her with someone else who wants to learn her skills and who wants to teach her the skills she’s trying to learn.
 
 **Product Backlog:** https://trello.com/b/i3THeXFj/teamify2020
 

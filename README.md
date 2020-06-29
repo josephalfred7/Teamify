@@ -6,11 +6,11 @@ A tool for students to self-organize into effective agile teams
 
 
 **Roster:**  
-Product owner/Developer:  Sri Vatsavai
-Scrum master/Developer:  Eric Laribee
-Developer:  Alfred Joseph
-Developer:  Michael Haak
-Developer:  Elias Falconi
+Product owner/Developer:  Sri Vatsavai   
+Scrum master/Developer:  Eric Laribee   
+Developer:  Alfred Joseph   
+Developer:  Michael Haak   
+Developer:  Elias Falconi   
 
 **Product Name:** Teamify
 

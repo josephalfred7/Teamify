@@ -1,4 +1,4 @@
-# Teamify
+﻿# Teamify
 A tool for students to self-organize into effective agile teams
 
 **Team Name:** Teamifysummer2020
@@ -67,10 +67,32 @@ Motivation: To learn as much as possible\
 Frustrations: Doesn’t know who has talent or skills or experience in the things she wants to learn about.\
 Desires/wants/needs: A match-maker to pair her with someone else who wants to learn her skills and who wants to teach her the skills she’s trying to learn.
 
-**Product Backlog:** https://trello.com/b/i3THeXFj/teamify2020
+**Product Backlog:** https://trello.com/b/i3THeXFj/teamify2020  
 
 **Backlog ordering rationale:**      
-The backlog is ordered based primarily on Student Persona experiences in forming Agile teams during CSCI S-71 2020 and are prioritized by expected value.  A primary focus was on what students found most difficult and opaque when creating groups.  One main difficulty was communicating skills and experiences in a standardized way to form diverse teams, so that formed the top items on our initial backlog.  This dovetailed with the professor’s observations that the most successful teams in past courses had been diverse.  The minimum conceptual requirements for the product were captured without early focus on implementation details.   Acceptance criteria will be expanded once our Primary Instructor customer is interviewed, which may result in reordering or refinement.  It is expected that during sprint planning, each of the Product Backlog items will be expanded into multiple work items, capturing more specific implementation details.  
+The backlog is composed of items from two types of stakeholders: 1) the Instructor, and 2) the students (CSCI S-71 2020).  Since the students are internal stakeholders, the priorities of our external real stakeholder (Instructor) were given higher consderation.  The initial ordering includes the top items from the Instructor persona, whose items were ordered independently during the first interview.  His priorities were based on ensuring no student was "left-behind" without a team or no understandable way to join a team.  The top items from the Student persona were developed and ordered internally based on what students found most difficult and opaque in forming Agile teams as well as difficulties with communicating skills and experiences in a standardized way to form diverse teams.  The top priorties from both personas are intermixed for tool development timeline dependencies and value decisions to balance the needs of both personas.  The minimum conceptual requirements for the product were captured without early focus on implementation details.  It is expected that during sprint planning, each of the Product Backlog items will be expanded into multiple work items, capturing more specific implementation details.  
+
+**Definition of Done:**      
+- All acceptance criteria are resolved  
+- Work has been peer reviewed and all issues addressed  
+- Work is commited to repository   
+- Work has been independently tested from the repository and is bug free   
+- PO has accepted the story     
+
+**Definition of Ready:**      
+- PBI has a user story Title   
+- PBI has a user story Description (opening sentence)   
+- Any conjunctions in description have been examined for further refinement   
+- The INVEST mnemonic has been considered for the PBI   
+- At least one Acceptance Criteria is defined   
+- Additional details are captured (implementation requirements and/or options)  
+- PBI is estimated in story points relative to other PBI's   
+- PBI is centrally stored in Trello board with other PBI's   
+- PBI has been priortized by the PO  
+- Development team has accepted the PBI
+
+
+
 
 
 

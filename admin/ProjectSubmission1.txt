@@ -1,0 +1,11 @@
+Project part 1: Team formation and product inception
+Team: Canvas Team 2; Teamifysummer2020
+Members: Elias Falconi, Michael Haak, Alfred Joseph, Eric Laribee, Sri Vatsavai
+
+Repository URL: https://github.com/josephalfred7/Teamify
+
+Score: We believe we should receive the full score of 48 out of 48 points.
+
+Strengths: We were able to form a team early on using the available communication channels and come to an agreement for a schedule to work together. We aligned our work to the rubric for the assignment and created a tracker to measure our progress against the rubric. Team members did further research on Agile tools and techniques to ensure the learning objective of each rubric item was accomplished. We agreed upon a product concept and secured a real stakeholder. We chose roles for one another that best fit our skill-sets and desires, and did so democratically. We were able to identify and agree upon twice than the required number of user stories. The user stories were elaborated and ordered in our Product backlog, which is linked in the README within our git repository. We spent several extended sessions working together as a team, coming to a shared understanding, and executing the tasks of the assignment. This includes our adaptation to the revised assignment duration to include PBI estimation tasks previously excluded. Members again did further research on Agile techniques to effectively estimate all PBIs while continuing to seize opportunities for backlog refinement. We have agreed upon a methodology for meeting and managing our work going forward and have set an effective administrative rhythm. Completion of all tasks in the rubric were verified complete and documented.
+
+To get a perfect score: Given the short time-frame to complete the assignment, we could have improved our customer collaboration with our Instructor stakeholder to gather more feedback prior to initial elaboration of our backlog items, which were expanded and reordered considerably once feedback was received.  We can improve our use of standard, consistent, tools and schedules for communication as we continue to develop as team.

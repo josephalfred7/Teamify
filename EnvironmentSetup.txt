@@ -1,0 +1,30 @@
+- Follow youtube videos 1 and 2 posted to slack channel
+- Copy teamify directory from repository into \htdocs directory
+- set MAMP WebServer Document Root (in Preferences) to C:\MAMP\htdocs\teamify\public (if on Windows)
+- In the bash Run $ php --ini  in order to confirm where your php.ini file is
+- Remove ';' from the line that reads ;extension=fileinfo in php.ini
+- Remove ';' from the line that reads ;extension=pdo_mysql in php.ini
+- In the bash Run $ composer install  from bash within the teamify directory (to install 3rd party SW)
+- In PhpStorm got to File->Settings->plugins and install Database Navigator
+- Goto DB Browser vertical tab at left of window
+- Click '+' to add a mysql connection
+	- Set Host to localhost
+	- Set Port to match MAMP (8889)
+	- Set User and Password both to:  root
+	- Click Test Connection, if good, Click OK to create connection
+- In DB Browser, right click Connection and click Open SQL Console
+	- Type in the console:  create schema laravel
+	- Click the Green arrow to run
+		- Look for "SQL statement executed successfully" in output
+- copy file .env.example as file .env in the same location (teamify root dir)
+	Modify the following:
+	DB_CONNECTION=mysql
+	DB_HOST=127.0.0.1
+	DB_PORT=8889
+	DB_DATABASE=laravel
+	DB_USERNAME=root
+	DB_PASSWORD=root
+- In the bash Run $ php artisan key:generate
+- In the bash Run $ php artisan migrate
+- In web browser goto:  localhost:8888   You should see the teamify app welcome page
+

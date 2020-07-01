@@ -40,7 +40,8 @@ Skill level 1:  Professional Agile trainer, coach, and course Instructor
 Skill level 2:  Professional Agile software development team facilitator  
 Skill level 3:  Author of Agile topics  
 Motivation:  Provide students a welcoming, unintimidating and easy-to-use means to share details about themselves and self-organize into teams that I can reference as a single source for student and team information.  
-Frustrations:  Existing tooling is not user friendly for both Instructors and students.  Students come to me with questions where answers could be provided upfront in the course.  
+Frustrations:  Using Slack as a team formation tool is not user friendly for both Instructors and students.  Students come to me with questions where answers could be provided upfront in the course.  Also, it's difficult to discover who has _not_ been active or able to find a team.  
+Desires/wants/needs: Wants students to find a team quickly enough that they have time to start developing their product vision in a condensed summer course.  Also wants to encourage diversity of skills within each team.
 
 **User Personae for Students (fictional):**  
 Name: Julia  
@@ -69,8 +70,13 @@ Desires/wants/needs: A match-maker to pair her with someone else who wants to le
 
 **Product Backlog:** https://trello.com/b/i3THeXFj/teamify2020  
 
-**Backlog ordering rationale:**      
-The backlog is composed of items from two types of stakeholders: 1) the Instructor, and 2) the students (CSCI S-71 2020).  Since the students are internal stakeholders, the priorities of our external real stakeholder (Instructor) were given higher consderation.  The initial ordering includes the top items from the Instructor persona, whose items were ordered independently during the first interview.  His priorities were based on ensuring no student was "left-behind" without a team or no understandable way to join a team.  The top items from the Student persona were developed and ordered internally based on what students found most difficult and opaque in forming Agile teams as well as difficulties with communicating skills and experiences in a standardized way to form diverse teams.  The top priorties from both personas are intermixed for tool development timeline dependencies and value decisions to balance the needs of both personas.  The minimum conceptual requirements for the product were captured without early focus on implementation details.  It is expected that during sprint planning, each of the Product Backlog items will be expanded into multiple work items, capturing more specific implementation details.  
+**Backlog ordering rationale:**
+
+The backlog is composed of items suggested by two types of stakeholders: 1) the Instructor, and 2) the students (CSCI S-71 2020).  The real students in this case were the members of the Scrum team, and the instructor was the real instructor of Harvard's CSCI S-71 course.  We opted to weigh the instructor's priorities more than the students' due to his experience of watching teams form many times (each time he has offered the course) as well as to temper our own biases in our dual roles as developers and students.
+
+The instructor's top PBI goals seemed to focus on ensuring no student was left behind without a team and no understandable way to join a team.  On the other hand, our top PBI goals were focused on making the team formation process more transparent and removing barriers to the communication of skills and experiences so that diverse teams could form.  In the end, to balance the needs of both personas, we interleaved these top priorities, starting with the instructor's, while trying to maintain a product backlog order in which lower priority backlog items only depended upon higher priority backlog items.
+
+The minimum viable requirements for the product were captured without early focus on implementation details.  We expect that during sprint planning, each of the Product Backlog Items will be expanded into multiple work items as the backlog is groomed, we consider more specific implementation details, and we learn more about our product together with our stakeholders.
 
 **Definition of Done:**      
 - All acceptance criteria are resolved  
@@ -91,8 +97,10 @@ The backlog is composed of items from two types of stakeholders: 1) the Instruct
 - PBI has been priortized by the PO  
 - Development team has accepted the PBI
 
+**Estimating activity:**  Affinity estimating  
 
+All members of our team, including the Scrum Master and Product Owner, are also doubling as development team members.  Therefore all members of the team participated in our affinity estimating activity.
 
+We followed the procedure outlined in the article [Affinity Estimating: A How-To](http://www.gettingagile.com/2008/07/04/affinity-estimating-a-how-to/) by Chris Sterling.  First, all PBIs were placed as stickies on a [Miro board](https://miro.com/app/board/o9J_kqfm64Y=/).  Each team member took one color of sticky note, and we ordered them silently from left to right, smallest to largest.  After that, we had a group discussion in which we collaboratively adjusted items, talking through each PBI where some team member found it in an unexpected order.  Finally, we identified natural groupings.  In two instances where a PBI fell between two groupings, we opted to include the PBI in the larger grouping, since we may not be able to deliver that item in the same amount of effort as PBIs in the smaller grouping.  We assigned each grouping a story point value from the Fibonacci sequence and updated our product backlog accordingly (putting the point value in parentheses before each PBI title in Trello).
 
-
-
+As we get more experience with our chosen tech stack and as a team, we expect that our estimates will get better, so we consider these estimates provisional.  They will be updated during sprint planning or backlog grooming as necessary.

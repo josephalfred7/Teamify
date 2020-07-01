@@ -27,4 +27,3 @@
 - In the bash Run $ php artisan key:generate
 - In the bash Run $ php artisan migrate
 - In web browser goto:  localhost:8888   You should see the teamify app welcome page
-

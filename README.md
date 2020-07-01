@@ -34,14 +34,14 @@ Line manager in an Agile organization
 **User Persona for Richard Kasperowski (real person):**  
 Name:  Richard  
 Role:  Agile Course Instructor  
-Age:  Unknown  
+Age:  50  
 Gender: Male  
 Skill level 1:  Professional Agile trainer, coach, and course Instructor  
 Skill level 2:  Professional Agile software development team facilitator  
 Skill level 3:  Author of Agile topics  
 Motivation:  Provide students a welcoming, unintimidating and easy-to-use means to share details about themselves and self-organize into teams that I can reference as a single source for student and team information.  
 Frustrations:  Using Slack as a team formation tool is not user friendly for both Instructors and students.  Students come to me with questions where answers could be provided upfront in the course.  Also, it's difficult to discover who has _not_ been active or able to find a team.  
-Desires/wants/needs: Wants students to find a team quickly enough that they have time to start developing their product vision in a condensed summer course.  Also wants to encourage diversity of skills within each team.
+Desires/wants/needs: Make it super-easy for students to form teams for group projects. Make sure no students are left behind. Also wants to encourage diversity of skills within each team.
 
 **User Personae for Students (fictional):**  
 Name: Julia  

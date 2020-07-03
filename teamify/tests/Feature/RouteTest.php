@@ -28,4 +28,11 @@ class RouteTest extends \Tests\TestCase
         $response->assertStatus(200);
     }
 
+    public function testUsers() {
+        $response = $this->get('/users');
+
+        $response->assertStatus(200);
+
+    }
+
 }

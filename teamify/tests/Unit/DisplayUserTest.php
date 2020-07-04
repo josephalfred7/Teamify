@@ -31,6 +31,12 @@ class DisplayUserTest extends TestCase
         $response->assertSee('Student List');
     }
 
+    public function testTeamNameColumn()
+    {
+        $response = $this->get('/users');
+        $response->assertSee('Team Name');
+    }
+
     public function testAlphaStudentList()
     {
         $registrars = array(
@@ -55,6 +61,21 @@ class DisplayUserTest extends TestCase
         {
             $r->deleteUser();
         }
+    }
+
+    public function testTeamDisplayed() {
+        $ur = new UserRegistrar;
+        $registration = $ur->getRegistration();
+        $this->call('POST', '/register', $registration);
+
+        $uc = app('App\Http\Controllers\UserController');
+        $uc->assignToTeam($registration['email'], 'Celtics');
+
+
+        $response = $this->get('/users');
+        $response->assertSee('Celtics');
+
+        $ur->deleteUser();
     }
 
     protected function tearDown(): void

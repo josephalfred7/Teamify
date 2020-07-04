@@ -16,4 +16,8 @@ class UserController extends Controller
     {
         return DB::table('users')->orderBy('last_name')->get();
     }
+
+    public function assignToTeam($email, $team) {
+        DB::table('users')->where('email', $email)->update(['team_name'=>$team]);
+    }
 }

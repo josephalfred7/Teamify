@@ -63,6 +63,8 @@ class DisplayUserTest extends TestCase
         }
     }
 
+
+
     public function testTeamDisplayed() {
         $ur = new UserRegistrar;
         $registration = $ur->getRegistration();

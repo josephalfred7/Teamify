@@ -67,7 +67,7 @@ class RegisterController extends Controller
         if (!array_key_exists('instructor', $data)) {
             $data['instructor'] = 0;
         }
-        
+
         return User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],

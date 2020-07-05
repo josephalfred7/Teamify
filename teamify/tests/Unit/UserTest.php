@@ -2,7 +2,6 @@
 
 namespace Tests\Unit;
 
-use Illuminate\Support\Facades\DB;
 use Tests\UserRegistrar;
 
 //use Faker;
@@ -67,6 +66,9 @@ class UserTest extends \Tests\TestCase
             'email' => $ur->email,
             'instructor' => $ur->instructor
         ]);
+
+        $response = $this->call('GET', '/home');
+        $response->assertSee('(Instructor)');
 
         $ur->deleteUser();
     }

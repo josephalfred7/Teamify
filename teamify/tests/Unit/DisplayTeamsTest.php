@@ -47,6 +47,18 @@ class DisplayTeamsTest extends TestCase
         }
     }
 
+    public function testInstructorNotDisplayed() {
+        $ur = new UserRegistrar;
+        $registration = $ur->getInstructorRegistration();
+        $this->call('POST', '/register', $registration);
+
+        $response = $this->get('/teams');
+        $full_name = $registration['first_name']." ".$registration['last_name'];
+        $response->assertDontSee($full_name);
+
+        $ur->deleteUser();
+    }
+
     public function testTeamHeaderDisplayed() {
         $ur = new UserRegistrar;
         $registration = $ur->getStudentRegistration();

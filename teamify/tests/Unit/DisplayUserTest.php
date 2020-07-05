@@ -19,8 +19,20 @@ class DisplayUserTest extends TestCase
         $this->call('POST', '/register', $registration);
 
         $response = $this->get('/users');
-        $response->assertSee($registration['first_name']);
-        $response->assertSee($registration['last_name']);
+        $full_name = $registration['first_name']." ".$registration['last_name'];
+        $response->assertSee($full_name);
+
+        $ur->deleteUser();
+    }
+
+    public function testInstructorNotDisplayed() {
+        $ur = new UserRegistrar;
+        $registration = $ur->getInstructorRegistration();
+        $this->call('POST', '/register', $registration);
+
+        $response = $this->get('/users');
+        $full_name = $registration['first_name']." ".$registration['last_name'];
+        $response->assertDontSee($full_name);
 
         $ur->deleteUser();
     }

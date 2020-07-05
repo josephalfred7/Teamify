@@ -20,7 +20,7 @@ class UserController extends Controller
 
     public function getOrderedUsers()
     {
-        return DB::table('users')->orderBy('last_name')->get();
+        return DB::table('users')->where('instructor', 0)->orderBy('last_name')->get();
     }
 
     public function getOrderedTeams()
@@ -29,8 +29,8 @@ class UserController extends Controller
         $teamNames = DB::table('users')->select('team_name')->distinct()->orderBy('team_name')->get();
 
         foreach($teamNames as $i => $team){
-            $count = DB::table('users')->select('*')->where('team_name', $team->team_name)->count();
-            $members = DB::table('users')->select('first_name','last_name')->where('team_name', $team->team_name)->orderBy('last_name')->get();
+            $count = DB::table('users')->select('*')->where(['team_name' => $team->team_name,'instructor' => 0], 'and')->count();
+            $members = DB::table('users')->select('first_name','last_name')->where(['team_name' => $team->team_name,'instructor' => 0], 'and')->orderBy('last_name')->get();
 
             array_push($teamRosters, [
                'team' => $team->team_name,

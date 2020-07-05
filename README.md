@@ -143,3 +143,20 @@ Here we are just after having created a failing test:
 Here we're celebrating after finally passing a particularly tricky test that we previously wrote.  Can't you tell we're celebrating?
 
 ![Feeling relieved after passing a tough test](admin/PassingTests.png)
+
+**Sprint Review:**
+
+We conducted a Sprint Review on Monday, July 6, 2020.
+
+At that sprint review, we demonstrated our working software to our actual stakeholder, Richard Kasperowski.  Here he is, checking our site:
+
+![Our stakeholder viewing the product increment of working software](admin/SprintReview.png)
+
+The feedback we received from Richard was that:
+
+* (something he really liked)
+* (something he wanted to change)
+* (something he thought was missing)
+* (something he thought was extraneous)
+
+We decided that our product backlog was perfect as is.  We'll keep the idea of assigning students to random groups as the highest priority product backlog item.

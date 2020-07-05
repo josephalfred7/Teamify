@@ -29,7 +29,7 @@ class DisplayTeamsTest extends TestCase
         $uc = app('App\Http\Controllers\UserController');
 
         foreach($registrars as $r) {
-            $this->call('POST', '/register', $r->getRegistration());
+            $this->call('POST', '/register', $r->getStudentRegistration());
             $uc->assignToTeam($r->email, $r->first_name);
         }
 
@@ -49,7 +49,7 @@ class DisplayTeamsTest extends TestCase
 
     public function testTeamHeaderDisplayed() {
         $ur = new UserRegistrar;
-        $registration = $ur->getRegistration();
+        $registration = $ur->getStudentRegistration();
         $this->call('POST', '/register', $registration);
 
         $response = $this->get('/teams');

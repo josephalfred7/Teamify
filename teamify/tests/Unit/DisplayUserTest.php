@@ -15,7 +15,7 @@ class DisplayUserTest extends TestCase
 
     public function testUserDisplayed() {
         $ur = new UserRegistrar;
-        $registration = $ur->getRegistration();
+        $registration = $ur->getStudentRegistration();
         $this->call('POST', '/register', $registration);
 
         $response = $this->get('/users');
@@ -46,7 +46,7 @@ class DisplayUserTest extends TestCase
         );
 
         foreach($registrars as $r) {
-            $this->call('POST', '/register', $r->getRegistration());
+            $this->call('POST', '/register', $r->getStudentRegistration());
         }
 
         $orderedNames = app('App\Http\Controllers\UserController')->getOrderedUsers();
@@ -67,7 +67,7 @@ class DisplayUserTest extends TestCase
 
     public function testTeamDisplayed() {
         $ur = new UserRegistrar;
-        $registration = $ur->getRegistration();
+        $registration = $ur->getStudentRegistration();
         $this->call('POST', '/register', $registration);
 
         $uc = app('App\Http\Controllers\UserController');

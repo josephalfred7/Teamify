@@ -3,6 +3,8 @@
 namespace Tests\Unit;
 
 use Illuminate\Support\Facades\DB;
+use Tests\UserRegistrar;
+
 //use Faker;
 
 class UserTest extends \Tests\TestCase
@@ -13,57 +15,69 @@ class UserTest extends \Tests\TestCase
     protected $email;
     protected $password;
 
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->withoutMiddleware();  // Does not validate token
+    }
+
     public function testLoginLogout()
     {
+        $ur = new UserRegistrar;
+        $registration = $ur->getStudentRegistration();
+        $this->call('POST', '/register', $registration);
+
         // for logout
         $this->call('POST', '/logout', ['_token' => null]);
 
         // for login
         $login = array(
-            '_token' => null,
-            'email' => $this->email,
-            'password' =>$this->password
+            //'_token' => null,
+            'email' => $ur->email,
+            'password' => $ur->password
         );
 
-        $response = $this->call('POST', '/login', $login);
-
+        $this->call('POST', '/login', $login);
+        $response = $this->call('GET', '/home');
         $response->assertSee('logged in');
+        $response->assertSee($ur->first_name);  // This used to not work?
 
-        $response->assertSee($this->first_name);
-        //$response->assertSee($this->last_name);
-        //TODO: There is strange caching behavior with tests giving inconsistent results
-
+        $ur->deleteUser();
     }
 
-    public function testRegistration() {
+    public function testUserRegistration() {
+        $ur = new UserRegistrar;
+        $registration = $ur->getStudentRegistration();
+        $this->call('POST', '/register', $registration);
+
         $this->assertDatabaseHas('users', [
-            'email' => $this->email
+            'email' => $ur->email,
+            'instructor' => $ur->instructor
         ]);
+
+        $ur->deleteUser();
     }
 
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $this->first_name = 'Haley';
-        $this->last_name = 'Spock';
-        $this->email='abc@abc.com';
-        $this->password = 'password';
+    public function testInstructorRegistration() {
+        $ur = new UserRegistrar;
+        $registration = $ur->getInstructorRegistration();
+        $this->call('POST', '/register', $registration);
 
-        $this->registration = array(
-            '_token' => null,
-            'first_name' => $this->first_name,
-            'last_name' => $this->last_name,
-            'email' => $this->email,
-            'password' => $this->password,
-            'password_confirmation' => $this->password
-        );
-        $this->withoutMiddleware();  // Does not validate token
-        $this->call('POST', '/register', $this->registration);
+        $this->assertDatabaseHas('users', [
+            'email' => $ur->email,
+            'instructor' => $ur->instructor
+        ]);
+
+        $ur->deleteUser();
+    }
+
+    public function testInstructorCheckBox(){
+        $response = $this->call('GET', '/register');
+        $response->assertSee('I am an instructor');
     }
 
     protected function tearDown(): void
     {
-        DB::table('users')->where('email', '=', 'abc@abc.com')->delete();
         parent::tearDown();
     }
 

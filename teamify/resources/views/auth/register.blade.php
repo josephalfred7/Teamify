@@ -78,7 +78,7 @@
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="instructor" id="instructor" {{ old('instructor') ? 'checked' : '' }}>
+                                    <input class="form-check-input" value="1" type="checkbox" name="instructor" id="instructor" {{ old('instructor') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="instructor">
                                         {{ __('I am an Instructor') }}

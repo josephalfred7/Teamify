@@ -1,2 +1,4 @@
 # ignore IDE settings
 .idea
+# ignore Floobits
+.floo*

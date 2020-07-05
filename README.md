@@ -1,4 +1,4 @@
-﻿# Teamify
+﻿# Teamify   
 A tool for students to self-organize into effective agile teams
 
 **Team Name:** Teamifysummer2020
@@ -103,4 +103,60 @@ All members of our team, including the Scrum Master and Product Owner, are also 
 
 We followed the procedure outlined in the article [Affinity Estimating: A How-To](http://www.gettingagile.com/2008/07/04/affinity-estimating-a-how-to/) by Chris Sterling.  First, all PBIs were placed as stickies on a [Miro board](https://miro.com/app/board/o9J_kqfm64Y=/).  Each team member took one color of sticky note, and we ordered them silently from left to right, smallest to largest.  After that, we had a group discussion in which we collaboratively adjusted items, talking through each PBI where some team member found it in an unexpected order.  Finally, we identified natural groupings.  In two instances where a PBI fell between two groupings, we opted to include the PBI in the larger grouping, since we may not be able to deliver that item in the same amount of effort as PBIs in the smaller grouping.  We assigned each grouping a story point value from the Fibonacci sequence and updated our product backlog accordingly (putting the point value in parentheses before each PBI title in Trello).
 
-As we get more experience with our chosen tech stack and as a team, we expect that our estimates will get better, so we consider these estimates provisional.  They will be updated during sprint planning or backlog grooming as necessary.
+As we get more experience with our chosen tech stack and as a team, we expect that our estimates will get better, so we consider these estimates provisional.  They will be updated during sprint planning or backlog grooming as necessary.   
+
+-----------------------------------------------------------------------------   
+## First Sprint  
+
+**Sprint Goal:**  Display resgistered students and team names.  
+
+**Forecast:**  We forecasted 10 points for our velocity in this Sprint.  This was based on the point scale that was developed in our estimation activity and upon inspection of the Tasks and Acceptance Criteria for the PBIs at the top of the backlog.  Given that we do not have historical performance data, we pulled items off the Product Backlog into the Sprint Backlog, stopping at a point where the amount of work in the Sprint Backlog was reasonable to expect to complete per our Definition of Done.  Without collective experience yet, we had to rely on our past individual experiences to guess about what was reasonable and then come to concensus.
+
+**Sprint Planning:**  As stated above, during Sprint planning we decomposed the PBIs at the top into Tasks to develop a shared understanding of the work required to complete them.  PBI's with higher point values were split into smaller point valued PBIs (User Stories) where appropriate.  All stories in the the Sprint Backlog have size of less than half of the forecast velocity.   
+
+**Product Backlog and Kanban Board:**  URL:  https://trello.com/b/i3THeXFj/teamify2020   
+All PBIs and Tasks are aggregated on a single board in Trello.  Initial PBIs have a yellow label and are not yet decomposed into Tasks.  PBIs that were placed in the Sprint Backlog have a green label and have been decomposed into Tasks.  Tasks have an orange label.  As Sprint Backlog items and Tasks have been put In Progress or have been Completed, they have been moved across the Kanban board into the corresponding columns.   
+
+**Additional material for this assignment:**  A single directory 'admin' in our git repository contains multiple supporting files for this assignment, explained below:  https://github.com/josephalfred7/Teamify/tree/master/admin   
+
+**Sprint Burndown Chart:**  File: https://github.com/josephalfred7/Teamify/blob/master/admin/5-JulSprintBurndown.xlsx   
+A sprint burndown chart has multiple lines plotted from the sprint forecast value of 10pts. down to zero by each date in the sprint.  A dashed black line shows a linera expectation.  A blue line shows the sprint plan we developed at our planning meeting.  An orange line shows our actual performance of story points completed at the end of each day of the sprint.  
+
+**Daily Scrum Log:**  A Daily Scrum event has been held since 06-28-20.  A daily log of the scrum has been recorded for each of these events documented in separate files titled 'DailyScrum_<date>', and located at: https://github.com/josephalfred7/Teamify/tree/master/admin  
+Each of these files is formatted to include three lists with the headings 'What we did in the past 24 hours?', 'What are we going to do in the next 24 hours?', and 'What are the impedements?'.  When impediments have been identified, a plan was also defined to take action to remove them.  Please see these files.  
+
+**Mob Programming Evidence:**  All development for this sprint was conducted in mob programming sessions with the entire team.  Photos are provided in:  https://github.com/josephalfred7/Teamify/tree/master/admin  
+
+**Test Driven Development:**   All development for this sprint was conducted using Test Driven Development, creating tests following the Tasks of the Kanban board that initially failed and then were made to pass by implementing simple solutions.  In all, we created ??? tests with ??? assertions.  They all passed at the end of the sprint.
+
+For example, when adding a page to our product that should list students in alphabetical order, we created tests in the following order, making each pass before writing the next failing test:
+
+1. The target web page exists
+1. The target web page is titled "Student List"
+1. The name of a student, once registered, appears on the page
+1. The list of student names fed to the page is in alphabetical order
+
+Here we are just after having created a failing test:
+
+![A new failing test](admin/FailingTests.png)
+
+Here we're celebrating after finally passing a particularly tricky test that we previously wrote.  Can't you tell we're celebrating?
+
+![Feeling relieved after passing a tough test](admin/PassingTests.png)
+
+**Sprint Review:**
+
+We conducted a Sprint Review on Monday, July 6, 2020.
+
+At that sprint review, we demonstrated our working software to our actual stakeholder, Richard Kasperowski.  Here he is, checking our site:
+
+![Our stakeholder viewing the product increment of working software](admin/SprintReview.png)
+
+The feedback we received from Richard was that:
+
+* (something he really liked)
+* (something he wanted to change)
+* (something he thought was missing)
+* (something he thought was extraneous)
+
+We decided that our product backlog was perfect as is.  We'll keep the idea of assigning students to random groups as the highest priority product backlog item.

@@ -15,7 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/debug', function() {
+Route::get('/teams', 'UserController@getTeams')->name('pages.teams');
+
+Route::get('/users', 'UserController@getUsers')->name('pages.users');
+
+/* Route::get('/debug', function() {
 
 	echo '<pre>';
 
@@ -34,7 +38,7 @@ Route::get('/debug', function() {
         When you're done debugging, comment it back out so you don't accidentally leave it
         running on your production server, making your credentials public.
         */
-	print_r(config('database.connections.mysql'));
+/*	print_r(config('database.connections.mysql'));
 
 	echo '<h1>Test Database Connection</h1>';
 	try {
@@ -49,7 +53,7 @@ Route::get('/debug', function() {
 
 	echo '</pre>';
 
-});
+}); */
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

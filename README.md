@@ -112,7 +112,17 @@ As we get more experience with our chosen tech stack and as a team, we expect th
 
 **Forecast:**  We forecasted 10 points for our velocity in this Sprint.  This was based on the point scale that was developed in our estimation activity and upon inspection of the Tasks and Acceptance Criteria for the PBIs at the top of the backlog.  Given that we do not have historical performance data, we pulled items off the Product Backlog into the Sprint Backlog, stopping at a point where the amount of work in the Sprint Backlog was reasonable to expect to complete per our Definition of Done.  Without collective experience yet, we had to rely on our past individual experiences to guess about what was reasonable and then come to concensus.
 
-**Sprint Planning:**  As stated above, during Sprint planning we decomposed the PBIs at the top into Tasks to develop a shared understanding of the work required to complete them.  PBI's with higher point values were split into smaller point valued PBIs (User Stories) where appropriate.  All stories in the the Sprint Backlog have size of less than half of the forecast velocity.   
+**Sprint Planning:**
+
+As stated above, during Sprint planning we decomposed the PBIs at the top into Tasks to develop a shared understanding of the work required to complete them.  PBI's with higher point values were split into smaller point valued PBIs (User Stories) where appropriate.  All stories in the the Sprint Backlog have size of less than half of the forecast velocity.  After story splitting, the specific stories that we pulled from the top of the product backlog into the sprint backlog for this sprint were:
+
+| Points | Story                                              |
+|--------|----------------------------------------------------|
+|   1    | A student can create an account in the app         |
+|   2    | Display of all student names                       |
+|   3    | Display current team count and team members' names |
+|   2    | Display students not on a team                     |
+|   2    | Instructor account                                 |
 
 **Product Backlog and Kanban Board:**  URL:  https://trello.com/b/i3THeXFj/teamify2020   
 All PBIs and Tasks are aggregated on a single board in Trello.  Initial PBIs have a yellow label and are not yet decomposed into Tasks.  PBIs that were placed in the Sprint Backlog have a green label and have been decomposed into Tasks.  Tasks have an orange label.  As Sprint Backlog items and Tasks have been put In Progress or have been Completed, they have been moved across the Kanban board into the corresponding columns.   

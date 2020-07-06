@@ -119,8 +119,8 @@ All PBIs and Tasks are aggregated on a single board in Trello.  Initial PBIs hav
 
 **Additional material for this assignment:**  A single directory 'admin' in our git repository contains multiple supporting files for this assignment, explained below:  https://github.com/josephalfred7/Teamify/tree/master/admin   
 
-**Sprint Burndown Chart:**  File: https://github.com/josephalfred7/Teamify/blob/master/admin/5-JulSprintBurndown.xlsx   
-A sprint burndown chart has multiple lines plotted from the sprint forecast value of 10pts. down to zero by each date in the sprint.  A dashed black line shows a linera expectation.  A blue line shows the sprint plan we developed at our planning meeting.  An orange line shows our actual performance of story points completed at the end of each day of the sprint.  
+**Sprint Burndown Chart:**  File: https://github.com/josephalfred7/Teamify/blob/master/admin/6-JulSprintBurndown.xlsx   
+A sprint burndown chart has multiple lines plotted from the sprint forecast value of 10pts. down to zero by each date in the sprint.  A dashed black line shows a linear expectation.  A blue line shows the sprint plan we developed at our planning meeting.  An orange line shows our actual performance of story points completed at the end of each day of the sprint.  
 
 **Daily Scrum Log:**  A Daily Scrum event has been held since 06-28-20.  A daily log of the scrum has been recorded for each of these events documented in separate files titled 'DailyScrum_<date>', and located at: https://github.com/josephalfred7/Teamify/tree/master/admin  
 Each of these files is formatted to include three lists with the headings 'What we did in the past 24 hours?', 'What are we going to do in the next 24 hours?', and 'What are the impedements?'.  When impediments have been identified, a plan was also defined to take action to remove them.  Please see these files.  

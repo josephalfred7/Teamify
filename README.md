@@ -119,8 +119,19 @@ All PBIs and Tasks are aggregated on a single board in Trello.  Initial PBIs hav
 
 **Additional material for this assignment:**  A single directory 'admin' in our git repository contains multiple supporting files for this assignment, explained below:  https://github.com/josephalfred7/Teamify/tree/master/admin   
 
-**Sprint Burndown Chart:**  File: https://github.com/josephalfred7/Teamify/blob/master/admin/6-JulSprintBurndown.xlsx   
-A sprint burndown chart has multiple lines plotted from the sprint forecast value of 10pts. down to zero by each date in the sprint.  A dashed black line shows a linear expectation.  A blue line shows the sprint plan we developed at our planning meeting.  An orange line shows our actual performance of story points completed at the end of each day of the sprint.  
+**Sprint Burndown Chart:**
+
+Original File: https://github.com/josephalfred7/Teamify/blob/master/admin/6-JulSprintBurndown.xlsx   
+
+![Burndown chart](admin/Burndown.png)
+
+We forecasted 10 points for the sprint.  Our chart has several lines.  First, the orange line indicates our actual progress.  We compared that with two other lines.  The dashed line shows what progress would have to be made if we completed the same number of points each day.  On the other hand, the blue shows our expected progress from the plan our team made during Sprint Planning.
+
+We anticipated that getting started with our first story would take some time as we set up our development environments, got used to mob programming, familiarized ourselves with the web and unit test frameworks we had chosen.  You can see that in gentle slope of the blue line at the start of the sprint.  After that, we reasoned, we could move faster.  Thus the blue line is steeper toward the middle of the sprint.
+
+Our actual progress, the orange line, shows that our plan was fairly reasonable.  There was one day (7/3) where we did not finish the story we had planned to, but we were very close.  We marked those points completed on the next day as we caught up with our plan.
+
+Because our actual progress matched our planned progress well most of the time, we didn't have to adapt much.  But because we were able to inspect our planned progress  on a visible burndown chart, we were able to end the day on 7/3 feeling confident that our slight delay in finishing one story would not cause us to miss our sprint goal.
 
 **Daily Scrum Log:**  A Daily Scrum event has been held since 06-28-20.  A daily log of the scrum has been recorded for each of these events documented in separate files titled 'DailyScrum_<date>', and located at: https://github.com/josephalfred7/Teamify/tree/master/admin  
 Each of these files is formatted to include three lists with the headings 'What we did in the past 24 hours?', 'What are we going to do in the next 24 hours?', and 'What are the impedements?'.  When impediments have been identified, a plan was also defined to take action to remove them.  Please see these files.  

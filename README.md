@@ -127,7 +127,7 @@ Each of these files is formatted to include three lists with the headings 'What 
 
 **Mob Programming Evidence:**  All development for this sprint was conducted in mob programming sessions with the entire team.  Photos are provided in:  https://github.com/josephalfred7/Teamify/tree/master/admin  
 
-**Test Driven Development:**   All development for this sprint was conducted using Test Driven Development, creating tests following the Tasks of the Kanban board that initially failed and then were made to pass by implementing simple solutions.  In all, we created ??? tests with ??? assertions.  They all passed at the end of the sprint.
+**Test Driven Development:**   All development for this sprint was conducted using Test Driven Development, creating tests following the Tasks of the Kanban board that initially failed and then were made to pass by implementing simple solutions.  In all, we created 21 tests with 51 assertions.  They all passed at the end of the sprint.
 
 For example, when adding a page to our product that should list students in alphabetical order, we created tests in the following order, making each pass before writing the next failing test:
 

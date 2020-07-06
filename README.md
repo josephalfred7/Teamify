@@ -136,7 +136,21 @@ Because our actual progress matched our planned progress well most of the time, 
 **Daily Scrum Log:**  A Daily Scrum event has been held since 06-28-20.  A daily log of the scrum has been recorded for each of these events documented in separate files titled 'DailyScrum_<date>', and located at: https://github.com/josephalfred7/Teamify/tree/master/admin  
 Each of these files is formatted to include three lists with the headings 'What we did in the past 24 hours?', 'What are we going to do in the next 24 hours?', and 'What are the impedements?'.  When impediments have been identified, a plan was also defined to take action to remove them.  Please see these files.  
 
-**Mob Programming Evidence:**  All development for this sprint was conducted in mob programming sessions with the entire team.  Photos are provided in:  https://github.com/josephalfred7/Teamify/tree/master/admin  
+**Mob Programming:**
+
+All development for this sprint was conducted in mob programming sessions with the entire team.
+
+We tried using Floobits at first, but quickly found that for more than 2-3 people, it sometimes overwrote important files at random.  We switched to giving remote control via Zoom after that.
+
+We did perceive benefits to code quality through mob programming.  But in addition, since we started out with only one person having experience with our web framework and no one having experience with our unit testing framework, we found mob programming indispensable for making sure we were all growing our technical skills together.
+
+Here we are passing the control to a new driver:
+
+![Passing control to a new driver](admin/MobProgramming_07-03-20.png)
+
+And here we are committing the code we just finished writing:
+
+![Mob code commit](admin/MobProgrammingCommit.png)
 
 **Test Driven Development:**   All development for this sprint was conducted using Test Driven Development, creating tests following the Tasks of the Kanban board that initially failed and then were made to pass by implementing simple solutions.  In all, we created 21 tests with 51 assertions.  They all passed at the end of the sprint.
 

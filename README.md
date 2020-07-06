@@ -133,8 +133,50 @@ Our actual progress, the orange line, shows that our plan was fairly reasonable.
 
 Because our actual progress matched our planned progress well most of the time, we didn't have to adapt much.  But because we were able to inspect our planned progress  on a visible burndown chart, we were able to end the day on 7/3 feeling confident that our slight delay in finishing one story would not cause us to miss our sprint goal.
 
-**Daily Scrum Log:**  A Daily Scrum event has been held since 06-28-20.  A daily log of the scrum has been recorded for each of these events documented in separate files titled 'DailyScrum_<date>', and located at: https://github.com/josephalfred7/Teamify/tree/master/admin  
-Each of these files is formatted to include three lists with the headings 'What we did in the past 24 hours?', 'What are we going to do in the next 24 hours?', and 'What are the impedements?'.  When impediments have been identified, a plan was also defined to take action to remove them.  Please see these files.  
+**Daily Scrum Log:**
+
+A Daily Scrum event has been held since 06-28-20.  A daily log of the scrum has been recorded for each of these events documented in separate files titled ``DailyScrum_<date>``, and located at: https://github.com/josephalfred7/Teamify/tree/master/admin
+
+Each of these files is formatted to include three lists with the headings
+
+* What we did in the past 24 hours?
+* What are we going to do in the next 24 hours?
+* What are the impedements?
+
+When impediments have been identified, a plan was also defined to take action to remove them.
+
+Note that in our daily Scrum logs, when referring to "we," that means all members of the team working together as a mob.
+
+Here's a sample from 7/5/20:
+
+	What we did in the past 24 hours?
+	---------------------------------
+	
+	- We continued mob programming with TDD and finished the Sprint backlog (Instructor account).   
+	- We reviewed the rubric tracker to ensure we have completed the assignment.   
+	- Eric reviewed the Sprint Burndown chart with our progress.  
+	- Elias uploaded our application to the server for our Sprint Review.  
+	- Michael uploaded images of our mob programming sessions and TDD evidence.   
+	- We updated our Kanban board with our progress to date.  
+
+	What are we going to do in the next 24 hours?
+	---------------------------------------------
+	
+	- Michael will create a suggested agenda for the Sprint Review meeting.   
+	- Alfred will confirm that he can demo the app from the server.  
+	- We will meet before (noon) the Sprint Review (1 PM) to discuss the agenda.   
+	- Eric will update the Sprint Burndown chart with our progress.  
+	- Michael will review/edit the new sections added to the README.  
+	- Eric will create an initial writeup for the Project 2 of 3 submission.  
+	- Each of us will complete our individual assignments due on Monday.  
+
+	What are the impedements?
+	-------------------------
+
+	- There is a misinterpretation between project expectations for the Backlog/Kanban boards.  
+		- We will receive guidance from Richard on Kanban board layout at our Monday mtg.  
+	- We sometimes have very laggy performance mob programming through Zoom.   
+		- We will work to identify the host that provides the Team with the best performance.   
 
 **Mob Programming:**
 

@@ -33,4 +33,6 @@ jobs:
         echo test, and deploy your project.
 
     - name: Install dependencies
-      run: composer install --prefer-dist --no-progress --no-suggest --no-interaction
+      run: |
+        cd teamify
+        composer install --prefer-dist --no-progress --no-suggest --no-interaction

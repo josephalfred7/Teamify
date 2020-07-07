@@ -17,7 +17,10 @@ Route::get('/', function () {
 
 Route::get('/teams', 'UserController@getTeams')->name('pages.teams');
 
+Route::post('/teams', 'UserController@postTeams')->name('pages.teams');
+
 Route::get('/users', 'UserController@getUsers')->name('pages.users');
+
 
 /* Route::get('/debug', function() {
 

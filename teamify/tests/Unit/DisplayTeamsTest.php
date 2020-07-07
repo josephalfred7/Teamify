@@ -59,6 +59,45 @@ class DisplayTeamsTest extends TestCase
         $ur->deleteUser();
     }
 
+    public function testInstructorSeesShuffleButton() {
+        $ur = new UserRegistrar;
+        $registration = $ur->getInstructorRegistration();
+        $this->call('POST', '/register', $registration);
+
+        $response = $this->get('/teams');
+        $response->assertSee('Shuffle');
+
+        $ur->deleteUser();
+    }
+
+    public function testStudentsDontSeeShuffleButton() {
+        $ur = new UserRegistrar;
+        $registration = $ur->getStudentRegistration();
+        $this->call('POST', '/register', $registration);
+
+        $response = $this->get('/teams');
+        $response->assertDontSee('Shuffle');
+
+        $ur->deleteUser();
+    }
+
+    public function testShuffleAssignsAllStudents() {
+        $sr = new UserRegistrar;
+        $registration = $sr->getStudentRegistration();
+        $this->call('POST', '/register', $registration);
+
+
+        $ir = new UserRegistrar;
+        $registration = $ir->getInstructorRegistration();
+        $this->call('POST', '/register', $registration);
+
+        $this->call('POST', '/teams', ['team_action'=>'shuffle']);
+        $this->assertEquals(0, app('App\Http\Controllers\UserController')->getUnassignedStudentCount());
+
+        $sr->deleteUser();
+        $ir->deleteUser();
+    }
+
     public function testTeamHeaderDisplayed() {
         $ur = new UserRegistrar;
         $registration = $ur->getStudentRegistration();

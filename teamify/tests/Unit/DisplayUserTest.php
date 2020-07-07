@@ -61,7 +61,7 @@ class DisplayUserTest extends TestCase
             $this->call('POST', '/register', $r->getStudentRegistration());
         }
 
-        $orderedNames = app('App\Http\Controllers\UserController')->getOrderedUsers();
+        $orderedNames = app('App\Http\Controllers\UserController')->getOrderedStudents();
         for($i = 0; $i < count($orderedNames); $i++)
         {
             if ($i < count($orderedNames) - 1) {

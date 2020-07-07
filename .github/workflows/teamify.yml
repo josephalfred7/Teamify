@@ -32,6 +32,16 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
 
+    - name: Copy .env
+      run: |
+        cd teamify
+        php -r "file_exists('.env') || copy('.env.build', '.env');"
+
+    - name: Generate key
+      run: |
+        cd teamify
+        php artisan key:generate
+
     - name: Install dependencies
       run: |
         cd teamify

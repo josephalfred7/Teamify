@@ -51,4 +51,4 @@ jobs:
       run: sudo /etc/init.d/mysql start
 
     - name: Create database
-      run: mysql -u root -p root -h 127.0.0.1 -e "CREATE DATABASE IF NOT EXISTS laravel;"
+      run: mysql -u root -proot -h 127.0.0.1 -e "CREATE DATABASE IF NOT EXISTS laravel;"

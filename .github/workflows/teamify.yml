@@ -52,3 +52,8 @@ jobs:
 
     - name: Create database
       run: mysql -u root -proot -h 127.0.0.1 -e "CREATE DATABASE IF NOT EXISTS laravel;"
+
+    - name: Migrate data
+      run: |
+        cd teamify
+        php artisan migrate:fresh --seed

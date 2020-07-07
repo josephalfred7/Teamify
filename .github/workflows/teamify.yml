@@ -32,6 +32,11 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
 
+    - name: Install dependencies
+      run: |
+        cd teamify
+        composer install --prefer-dist --no-progress --no-suggest --no-interaction
+
     - name: Copy .env
       run: |
         cd teamify
@@ -41,8 +46,3 @@ jobs:
       run: |
         cd teamify
         php artisan key:generate
-
-    - name: Install dependencies
-      run: |
-        cd teamify
-        composer install --prefer-dist --no-progress --no-suggest --no-interaction

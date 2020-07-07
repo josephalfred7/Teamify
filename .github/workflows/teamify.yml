@@ -47,5 +47,8 @@ jobs:
         cd teamify
         php artisan key:generate
 
+    - name: Start MySQL
+      run: sudo /etc/init.d/mysql start
+
     - name: Create database
       run: mysql -u root -p root -h 127.0.0.1 -e "CREATE DATABASE IF NOT EXISTS laravel;"

@@ -9,6 +9,7 @@ use Faker;
 
 class UserController extends Controller
 {
+
     public function getUsers() {
         return view('pages.users')->with([
             'users' => $this->getOrderedStudents()
@@ -24,9 +25,10 @@ class UserController extends Controller
     public function postTeams(Request $data) {
         if($data->team_action == 'shuffle') {
             $this->shuffleTeams();
-        }
-        if($data->team_action == 'add_team') {
+        }elseif($data->team_action == 'add_team') {
             $this->addTeam();
+        }else{
+            $this->optimizeTeams();
         }
 
         return $this->getTeams();
@@ -58,6 +60,10 @@ class UserController extends Controller
             array_push($teamNames, $team->team_name);
         }
 
+        $this->shuffleTeamSet($teamNames);
+    }
+
+    public function shuffleTeamSet($teamNames){
         $studentsResult = $this->getOrderedStudents();
         $emails = array();
 
@@ -69,17 +75,15 @@ class UserController extends Controller
         for($i=0;$i < count($emails);$i++) {
             $this->assignToTeam($emails[$i],$teamNames[$i % count($teamNames)]);
         }
-
     }
 
-    private function getTeamNames() {
+    public function getTeamNames() {
         $teamNames = DB::table('users')->select('team_name')->distinct()
             ->where('team_name', '<>', '-')
             ->orderBy('team_name')
             ->get();
         return $teamNames;
     }
-
 
     public function getOrderedStudents()
     {
@@ -109,6 +113,26 @@ class UserController extends Controller
     {
         $count = DB::table('users')->select('*')->where(['team_name' => '-','instructor' => 0], 'and')->count();
         return $count;
+    }
+
+    public function optimizeTeams(){
+        $teamCount = count($this->getTeamNames());
+        $studentCount = count($this->getOrderedStudents());
+        $teamsNeeded = round($studentCount/5.0) - $teamCount;
+
+        for($i = 0; $i < $teamsNeeded; $i++){
+            $this->addTeam();
+        }
+
+        $teamNameResult = $this->getTeamNames();
+        $teamNames = array();
+
+        foreach($teamNameResult as $i => $team) {
+            array_push($teamNames, $team->team_name);
+        }
+
+        $teamNames = array_slice($teamNames, 0, $teamCount + $teamsNeeded);
+        $this->shuffleTeamSet($teamNames);
     }
 
     public function assignToTeam($email, $team) {

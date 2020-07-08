@@ -127,6 +127,32 @@ class DisplayTeamsTest extends TestCase
         $ur->deleteUser();
     }
 
+    public function testOptimizeAddsTeams(){
+        $application = app('App\Http\Controllers\UserController');
+        $teamCount = count($application->getTeamNames());
+        $studentCount = count($application->getOrderedStudents());
+        $regis = array();
+
+        while(round($studentCount/5.0) <= $teamCount){
+            $sr = new UserRegistrar;
+            $registration = $sr->getStudentRegistration();
+            $this->call('POST', '/register', $registration);
+
+            array_push($regis, $sr);
+            $studentCount++;
+        }
+
+        $this->call('POST', '/teams', ['team_action'=>'optimize']);
+
+        $newTeamCount = count($application->getOrderedTeams());
+
+        $this->assertGreaterThan($teamCount, $newTeamCount);
+
+        foreach($regis as $r){
+            $r->deleteUser();
+        }
+    }
+
     public function testShuffleAssignsAllStudents() {
         $sr = new UserRegistrar;
         $registration = $sr->getStudentRegistration();
@@ -142,6 +168,25 @@ class DisplayTeamsTest extends TestCase
 
         $sr->deleteUser();
         $ir->deleteUser();
+
+    }
+
+    public function testOptimizeTeams() {
+        $sr = new UserRegistrar;
+        $registration = $sr->getStudentRegistration();
+        $this->call('POST', '/register', $registration);
+
+
+        $ir = new UserRegistrar;
+        $registration = $ir->getInstructorRegistration();
+        $this->call('POST', '/register', $registration);
+
+        $this->call('POST', '/teams', ['team_action'=>'optimize']);
+        $this->assertEquals(0, app('App\Http\Controllers\UserController')->getUnassignedStudentCount());
+
+        $sr->deleteUser();
+        $ir->deleteUser();
+
     }
 
     public function testTeamAdded() {

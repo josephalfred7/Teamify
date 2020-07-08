@@ -68,4 +68,4 @@ jobs:
         chmod 600 ~/.ssh/id_dsa
     
     - name: Connect to prod
-      run: ssh -l "$PROD_USER" -p "$PROD_PORT" "$PROD_HOST" ./deploy.sh
+      run: ssh -l "$PROD_USER" -p "$PROD_PORT" "$PROD_HOST" /var/www/html/Teamify/deploy/pullAndDeploy.sh

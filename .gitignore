@@ -2,3 +2,5 @@
 .idea
 # ignore Floobits
 .floo*
+# ignore README preview
+README.pdf

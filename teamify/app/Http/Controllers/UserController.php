@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Faker;
 
 
 class UserController extends Controller
@@ -24,8 +25,29 @@ class UserController extends Controller
         if($data->team_action == 'shuffle') {
             $this->shuffleTeams();
         }
+        if($data->team_action == 'add_team') {
+            $this->addTeam();
+        }
 
         return $this->getTeams();
+    }
+
+    private function addTeam() {
+        $faker = Faker\Factory::create();
+        $newTeamName = $faker->colorName . random_int(0, 100);
+        $this->addNamedTeam($newTeamName);
+    }
+
+    private function addNamedTeam($teamName) {
+        $faker = Faker\Factory::create();
+        DB::table('users')->insert([
+            'first_name' => 'Dummy',
+            'last_name' => 'Instructor',
+            'email' => $faker->email,
+            'team_name' => $teamName,
+            'password' => $faker->password,
+            'instructor' => 1
+        ]);
     }
 
     private function shuffleTeams() {

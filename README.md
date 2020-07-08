@@ -295,6 +295,7 @@ Here's a sample from 7/7/20:
 
 ### Mob programming
 
+![New screenshot of mob programming during final sprint](todo)
 
 ### Test-first development
 
@@ -312,11 +313,18 @@ Rule: Shuffling leaves all students on teams
      When an instructor shuffles teams
      Then all students are on teams
 ```
-We then automated this using a test in our PHPUnit test suite.  The test registers a new student without a team, registers an instructor, has the instructor press the "shuffle" button, and then asserts that all students are assigned to a team.
+We then automated this using a test in our PHPUnit test suite.  The test registers a new student without a team, registers an instructor, has the instructor press the "shuffle" button, and then asserts that all students are assigned to a team.  Because all our tests were implemented in PHPUnit, we do not have a separate suite of BDD tests, but you can see the implementation of the above formulation [in our existing test suite](todo).
 
-At the end of the last sprint, we had 21 tests.  This sprint, we wrote ??? more test for a total of ??? tests.  By the end of the sprint, all our tests were passing.
+At the end of the last sprint, we had 21 tests.  This sprint, we wrote ??? more test for a total of ??? tests.  As you can see below, by the end of the sprint, all our tests were passing:
+
+![New screenshot of all tests green](todo)
 
 ### Continuous integration and deployment
 
+We used Github Actions to implement a continuous integration and deployment system.  The workflow is stored [in our repository](https://github.com/josephalfred7/Teamify/blob/master/.github/workflows/teamify.yml).  This workflow is triggered whenever either of two conditions occur: 1) a push to master, or 2) a pull_request is opened to master.  It then executes two jobs in sequence, called build and deploy.  Execution of the entire workflow stops whenever an error is encountered.  For instance, if the build job fails, the deploy job will not be executed.
+
+The build job begins with a "fresh" Ubuntu instance.  Third party dependencies are installed, an appropriate configuration file generated, the database is started and seeded with sample data, and small, single-threaded web server is started.  At that point, our test suite is executed.  If all tests pass, the job is "green," and workflow execution continues.
+
+The deploy job connects to our production server via ssh and runs a deploy script locally there.  The deploy script is 
 
 ### Sprint Review

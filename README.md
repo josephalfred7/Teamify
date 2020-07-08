@@ -313,7 +313,9 @@ Here's a sample from 7/7/20:
 
 **Mob programming:**
 
-![New screenshot of mob programming during final sprint](todo)
+Like in the last sprint, we mob programmed using screen sharing and remote control over Zoom during the implementation of all our PBIs.  We identified a couple of team members who had Internet connections best suited for hosting, and they became regular hosts as we took turns driving and navigating.
+
+![Mob programming during the final sprint](admin/MobProgramming2.png)
 
 **Test-first development:**
 

@@ -323,8 +323,14 @@ At the end of the last sprint, we had 21 tests.  This sprint, we wrote ??? more 
 
 We used Github Actions to implement a continuous integration and deployment system.  The workflow is stored [in our repository](https://github.com/josephalfred7/Teamify/blob/master/.github/workflows/teamify.yml).  This workflow is triggered whenever either of two conditions occur: 1) a push to master, or 2) a pull_request is opened to master.  It then executes two jobs in sequence, called build and deploy.  Execution of the entire workflow stops whenever an error is encountered.  For instance, if the build job fails, the deploy job will not be executed.
 
-The build job begins with a "fresh" Ubuntu instance.  Third party dependencies are installed, an appropriate configuration file generated, the database is started and seeded with sample data, and small, single-threaded web server is started.  At that point, our test suite is executed.  If all tests pass, the job is "green," and workflow execution continues.
+The build job begins with a fresh Ubuntu instance.  Third party dependencies are installed, an appropriate configuration file generated, the database is started and seeded with sample data, and small, single-threaded web server is started.  At that point, our test suite is executed.  If all tests pass, the job is "green," and workflow execution continues.
 
-The deploy job connects to our production server via ssh and runs a deploy script locally there.  The deploy script is 
+The deploy job connects to our production server via ssh and runs deploy scripts locally there.  The first script pulls from the repository to make sure all files are up to date, and then calls another script with custom actions to run.  For now that script checks for and installs unmet dependencies as well as performs database updates with data migrations.
+
+Show evidence that workflow halts when tests fail (todo)
+
+Show evidence that application is deployed when tests pass (todo)
+
+Include badge to show passing status: ![Teamify](https://github.com/josephalfred7/Teamify/workflows/Teamify/badge.svg?branch=master)
 
 ### Sprint Review

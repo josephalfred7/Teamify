@@ -61,6 +61,7 @@ jobs:
     steps:
     - name: Write identity file
       run: |
+        mkdir ~/.ssh
         echo "$PROD_KEY" > ~/.ssh/id_dsa
         chmod 600 ~/.ssh/id_dsa
     

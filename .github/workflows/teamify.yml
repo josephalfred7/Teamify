@@ -62,8 +62,8 @@ jobs:
     - name: Write identity file
       run: |
         mkdir ~/.ssh
-        echo "$PROD_KEY" > ~/.ssh/id_dsa
+        echo "$PROD_KEY" | xargs > ~/.ssh/id_dsa
         chmod 600 ~/.ssh/id_dsa
     
     - name: Connect to prod
-      run: ssh -l "$PROD_USER" -p "$PROD_PORT" "$PROD_HOST" whoami
+      run: ssh -l "$PROD_USER" -p "$PROD_PORT" "$PROD_HOST" ./deploy.sh

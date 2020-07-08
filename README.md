@@ -230,3 +230,47 @@ At that sprint review, we demonstrated our working software to our actual stakeh
 ![Our stakeholder viewing the product increment of working software](admin/SprintReview.png)
 
 In general they were happy with the product so far.  Their primary concern is getting students onto teams.  So we'll keep the idea of assigning students to random groups as the highest priority product backlog item.
+
+------------------------------------------------------------------------
+
+## Final Sprint
+
+### Forecast
+
+
+### Sprint backlog
+
+
+### Burndown chart
+
+
+### Daily Scrums
+
+
+### Mob programming
+
+
+### Test-first development
+
+As in the first sprint, we are building our product test-first.  For example, one of our solutions to a story this sprint was creating a button to add a new team.  The first acceptance criteria was that a user could indicate that they wanted a new team.  Accordingly, our first step in implementing the solution was to write a test asserting that the "Add team" button existed.  Since we hadn't implemented anything yet, it failed, and we proceeded to add the button to make it pass.
+
+We engage in BDD to develop some of our tests.  For instance, as a solution to another story was to add a button to distribute students randomly among existing teams (which we called "shuffling").  In the Discovery phase, the Dev Team asked questions and the whole team achieved shared understanding using a few examples.  One example we examined was that if a student is not on a team before shuffling was initiated, they should be on a team after shuffling.  In other words, the product should not just shuffle students who are already on teams.  We did not use Cucumber for this project, but the formulation of this rule in Gherkin would be:
+```
+Feature: Shuffle students
+
+Rule: Shuffling leaves all students on teams
+
+  Scenario: Students without a team
+    Given Anita has registered
+      And Anita is not assigned to a team
+     When an instructor shuffles teams
+     Then Anita is on a team
+```
+We then automated this using a test.  The test registers a new student without a team, registers an instructor, has the instructor press the "shuffle" button, and then asserts that all students are assigned to a team.
+
+At the end of the last sprint, we had 21 tests.  This sprint, we wrote ??? more test for a total of ??? tests.  By the end of the sprint, all our tests were passing.
+
+### Continuous integration and deployment
+
+
+### Sprint Review

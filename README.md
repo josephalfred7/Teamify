@@ -230,3 +230,107 @@ At that sprint review, we demonstrated our working software to our actual stakeh
 ![Our stakeholder viewing the product increment of working software](admin/SprintReview.png)
 
 In general they were happy with the product so far.  Their primary concern is getting students onto teams.  So we'll keep the idea of assigning students to random groups as the highest priority product backlog item.
+
+------------------------------------------------------------------------
+
+## Final Sprint
+
+### Forecast
+
+
+### Sprint backlog
+
+
+### Burndown chart
+
+
+### Daily Scrums
+
+We've had daily Scrums after class each day of the sprint, which started July 6.  Logs of each Scrum have been recorded in separate files titled ``DailyScrum_<date>`` in the [admin folder](https://github.com/josephalfred7/Teamify/tree/master/admin) of our project repository.
+
+Each of these files is formatted to include three lists with the headings
+
+* What we did in the past 24 hours?
+* What are we going to do in the next 24 hours?
+* What are the impedements?
+
+When impediments have been identified, a plan was also defined to take action to remove them.
+
+Note that in our daily Scrum logs, references to "we" mean all members of the team working together as a mob.
+
+Here's a sample from 7/7/20:
+
+	What we did in the past 24 hours?
+	---------------------------------
+	- Michael uploaded the notes from our Sprint Retrospective.   
+	- We held a Sprint Planning meeting and decomposed tasks for the Final Sprint.   
+		- We updated our Kanban board with our progress and plan to date.  
+	- We reviewed the part 3 of 3 rubric.   
+	- Eric created a new Burndown chart with our Sprint Goal and plan.   
+	- Alfred read through the Project part 3 of 3 rubric and started presentation preparation.   
+		- Slides are started for the Far vision and Near vision on google drive.  
+	- Michael, Sri, and Elias will research CI/CD tools for our environment.  
+		- Michael got a CI framework up an running in the repository.  
+	- We met to continue development for the Sprint and completed the first PBI.  
+
+	What are we going to do in the next 24 hours?
+	---------------------------------------------
+	- Eric will format our retrospective notes and push them up to the repository.   
+	- Michael will writeup a BDD justified approach to one of our existing tests.  
+		- Michael suggested using the shuffle functionality as a scenario.  
+	- Eric will review/edit the user persona in the presentation slides.   
+	- Sri will look at the best way to represent the backlog in the presentation.   
+	- Elias will post the private SSH key needed for implementing CD.  
+		- Alfred will work with Michael to get the repo setup for CD.  
+	- We will continue developing our app per the backlog.   
+
+	What are the impediments?
+	-------------------------
+	- We sometimes have very laggy performance mob programming through Zoom.   
+		- We will work to identify the host that provides the Team with the best performance.   
+		- Eric's machine worked well as a host today.  
+	- Eric is having internet connectivity issues and has been getting dropped from zoom meetings.   
+		- Eric is getting better performance with fewer devices connected to his network simultaneously.   
+
+
+### Mob programming
+
+![New screenshot of mob programming during final sprint](todo)
+
+### Test-first development
+
+As in the first sprint, we are building our product test-first.  For example, one of our solutions to a story this sprint was creating a button to add a new team.  The first acceptance criteria was that a user could indicate that they wanted a new team.  Accordingly, our first step in implementing the solution was to write a test asserting that the "Add team" button existed.  Since we hadn't implemented anything yet, it failed, and we proceeded to add the button to make it pass.
+
+We engaged in BDD to develop some of our tests.  For instance, a solution to another story was to add a button to distribute students randomly among existing teams (which we called "shuffling").  We did the Discovery phase during Sprint Planning, where team members asked questions and the whole team achieved shared understanding using a few examples.  One example we landed on was that if a student was not on a team before shuffling was initiated, they should be on a team after shuffling.  In other words, the product should not just shuffle students who are already on teams.  We did not use Cucumber for this project, but the formulation of this rule in Gherkin would be:
+```
+Feature: Shuffle students
+
+Rule: Shuffling leaves all students on teams
+
+  Scenario: Students without a team
+    Given Anita has registered
+      And Anita is not assigned to a team
+     When an instructor shuffles teams
+     Then all students are on teams
+```
+We then automated this using a test in our PHPUnit test suite.  The test registers a new student without a team, registers an instructor, has the instructor press the "shuffle" button, and then asserts that all students are assigned to a team.  Because all our tests were implemented in PHPUnit, we do not have a separate suite of BDD tests, but you can see the implementation of the above formulation [in our existing test suite](todo).
+
+At the end of the last sprint, we had 21 tests.  This sprint, we wrote ??? more test for a total of ??? tests.  As you can see below, by the end of the sprint, all our tests were passing:
+
+![New screenshot of all tests green](todo)
+
+### Continuous integration and deployment
+
+We used Github Actions to implement a continuous integration and deployment system.  The workflow is stored [in our repository](https://github.com/josephalfred7/Teamify/blob/master/.github/workflows/teamify.yml).  This workflow is triggered whenever either of two conditions occur: 1) a push to master, or 2) a pull_request is opened to master.  It then executes two jobs in sequence, called build and deploy.  Execution of the entire workflow stops whenever an error is encountered.  For instance, if the build job fails, the deploy job will not be executed.
+
+The build job begins with a fresh Ubuntu instance.  Third party dependencies are installed, an appropriate configuration file generated, the database is started and seeded with sample data, and small, single-threaded web server is started.  At that point, our test suite is executed.  If all tests pass, the job is "green," and workflow execution continues.
+
+The deploy job connects to our production server via ssh and runs deploy scripts locally there.  The first script pulls from the repository to make sure all files are up to date, and then calls another script with custom actions to run.  For now that script checks for and installs unmet dependencies as well as performs database updates with data migrations.
+
+Show evidence that workflow halts when tests fail (todo)
+
+Show evidence that application is deployed when tests pass (todo)
+
+Include badge to show passing status: ![Teamify](https://github.com/josephalfred7/Teamify/workflows/Teamify/badge.svg?branch=master)
+
+### Sprint Review

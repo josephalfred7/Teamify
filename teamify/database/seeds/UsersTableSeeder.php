@@ -13,13 +13,13 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker\Factory::create();
-        $teams = ['-', $faker->colorName, $faker->colorName, $faker->colorName, $faker->colorName];
+        $teams = ['-', $faker->unique()->colorName, $faker->unique()->colorName];
 
-        for($i = 0; $i < 20; $i++) {
+        for($i = 0; $i < 30; $i++) {
             DB::table('users')->insert([
                 'first_name' => $faker->firstName,
                 'last_name' => $faker->lastName,
-                'email' => $faker->email,
+                'email' => $faker->unique()->email,
                 'team_name' => $teams[$i % count($teams)],
                 'password' => $faker->password
             ]);

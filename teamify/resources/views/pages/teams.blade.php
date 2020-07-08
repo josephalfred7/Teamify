@@ -6,18 +6,40 @@
             <div class="col-md-6">
                 <h1 id="TeamListHeader">Team List</h1>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-2 add_team_column">
                 @if(!Auth::guest() && Auth::user()->instructor == 1)
-                <form method="POST" action="{{ route('pages.teams') }}">
-                    @csrf
-                    <div class="form-group row mb-0">
-                        <div class="col-md-8 offset-md-4">
+                    <form method="POST" action="{{ route('pages.teams') }}">
+                        @csrf
+                        <div class="form-group row mb-0">
+                            <button name="team_action" value="add_team" type="submit" class="btn btn-primary add_team">
+                                {{ __('Add Team') }}
+                            </button>
+                        </div>
+                    </form>
+                @endif
+            </div>
+            <div class="col-md-2">
+                @if(!Auth::guest() && Auth::user()->instructor == 1)
+                    <form method="POST" action="{{ route('pages.teams') }}">
+                        @csrf
+                        <div class="form-group row mb-0">
                             <button name="team_action" value="shuffle" type="submit" class="btn btn-primary shuffle">
                                 {{ __('Shuffle') }}
                             </button>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                @endif
+            </div>
+            <div class="col-md-2">
+                @if(!Auth::guest() && Auth::user()->instructor == 1)
+                    <form method="POST" action="{{ route('pages.teams') }}">
+                        @csrf
+                        <div class="form-group row mb-0">
+                            <button name="team_action" value="optimize" type="submit" class="btn btn-primary optimize">
+                                {{ __('Optimize') }}
+                            </button>
+                        </div>
+                    </form>
                 @endif
             </div>
         </div>

@@ -4,6 +4,8 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use Tests\UserRegistrar;
+use Illuminate\Support\Facades\DB;
+
 
 class DisplayTeamsTest extends TestCase
 {
@@ -81,6 +83,50 @@ class DisplayTeamsTest extends TestCase
         $ur->deleteUser();
     }
 
+    public function testInstructorSeesAddTeamButton() {
+        $ur = new UserRegistrar;
+        $registration = $ur->getInstructorRegistration();
+        $this->call('POST', '/register', $registration);
+
+        $response = $this->get('/teams');
+        $response->assertSee('Add Team');
+
+        $ur->deleteUser();
+    }
+
+    public function testStudentsDontSeeAddTeamButton() {
+        $ur = new UserRegistrar;
+        $registration = $ur->getStudentRegistration();
+        $this->call('POST', '/register', $registration);
+
+        $response = $this->get('/teams');
+        $response->assertDontSee('Add Team');
+
+        $ur->deleteUser();
+    }
+
+    public function testInstructorSeesOptimizeButton() {
+        $ur = new UserRegistrar;
+        $registration = $ur->getInstructorRegistration();
+        $this->call('POST', '/register', $registration);
+
+        $response = $this->get('/teams');
+        $response->assertSee('Optimize');
+
+        $ur->deleteUser();
+    }
+
+    public function testStudentsDontSeeOptimizeButton() {
+        $ur = new UserRegistrar;
+        $registration = $ur->getStudentRegistration();
+        $this->call('POST', '/register', $registration);
+
+        $response = $this->get('/teams');
+        $response->assertDontSee('Optimize');
+
+        $ur->deleteUser();
+    }
+
     public function testShuffleAssignsAllStudents() {
         $sr = new UserRegistrar;
         $registration = $sr->getStudentRegistration();
@@ -95,6 +141,26 @@ class DisplayTeamsTest extends TestCase
         $this->assertEquals(0, app('App\Http\Controllers\UserController')->getUnassignedStudentCount());
 
         $sr->deleteUser();
+        $ir->deleteUser();
+    }
+
+    public function testTeamAdded() {
+        $ir = new UserRegistrar;
+        $registration = $ir->getInstructorRegistration();
+        $this->call('POST', '/register', $registration);
+        $teamNamesBefore = DB::table('users')->select('team_name')->distinct()->get();
+        $teamCountBefore = count($teamNamesBefore);
+
+        $this->call('POST', '/teams', ['team_action'=>'add_team']);
+
+        $teamNamesAfter = DB::table('users')->select('team_name')->distinct()->get();
+        $teamCountAfter = count($teamNamesAfter);
+
+        $this->assertEquals($teamCountBefore + 1, $teamCountAfter);
+
+        //TODO: how to iterate array of arrays to find if team names different
+        //$differentTeams = diff($teamNamesAfter, $teamNamesBefore);
+
         $ir->deleteUser();
     }
 

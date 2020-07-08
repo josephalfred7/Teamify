@@ -59,9 +59,10 @@ jobs:
       PROD_KEY: ${{ secrets.PROD_KEY }}
     
     steps:
-    - name: Write identity file
+    - name: Write keys to files
       run: |
         mkdir ~/.ssh
+        ssh-keyscan -H -t ecdsa "$PROD_HOST" >> ~/.ssh/known_hosts
         echo "$PROD_KEY" | xargs > ~/.ssh/id_dsa
         chmod 600 ~/.ssh/id_dsa
     

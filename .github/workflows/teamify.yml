@@ -63,7 +63,8 @@ jobs:
       run: |
         mkdir ~/.ssh
         ssh-keyscan -H -t ecdsa "$PROD_HOST" >> ~/.ssh/known_hosts
-        echo "$PROD_KEY" | xargs > ~/.ssh/id_dsa
+        echo "$PROD_KEY" > ~/.ssh/id_dsa
+        cat ~/.ssh/id_dsa | wc
         chmod 600 ~/.ssh/id_dsa
     
     - name: Connect to prod

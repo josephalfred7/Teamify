@@ -36,7 +36,7 @@ class UserController extends Controller
 
     private function addTeam() {
         $faker = Faker\Factory::create();
-        $newTeamName = $faker->colorName . random_int(0, 100);
+        $newTeamName = $faker->unique()->colorName . random_int(0, 999);
         $this->addNamedTeam($newTeamName);
     }
 
@@ -45,7 +45,7 @@ class UserController extends Controller
         DB::table('users')->insert([
             'first_name' => 'Dummy',
             'last_name' => 'Instructor',
-            'email' => $faker->email,
+            'email' => $faker->unique()->email,
             'team_name' => $teamName,
             'password' => $faker->password,
             'instructor' => 1

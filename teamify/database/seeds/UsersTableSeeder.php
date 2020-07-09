@@ -10,12 +10,18 @@ class UsersTableSeeder extends Seeder
      *
      * @return void
      */
+    public static $numStudents = 31;
+    public static $numTeams = 3;
+
     public function run()
     {
         $faker = Faker\Factory::create();
-        $teams = ['-', $faker->unique()->colorName, $faker->unique()->colorName];
+        $teams = ['-'];
+        for ($i = 0; $i < self::$numTeams - 1; $i++) {
+            array_push($teams, $faker->unique()->colorName);
+        }
 
-        for($i = 0; $i < 30; $i++) {
+        for($i = 0; $i < self::$numStudents - 1; $i++) {
             DB::table('users')->insert([
                 'first_name' => $faker->firstName,
                 'last_name' => $faker->lastName,

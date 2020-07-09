@@ -1,12 +1,13 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Feature;
 
+use Tests\TestCase;
 use Tests\UserRegistrar;
 
 //use Faker;
 
-class UserTest extends \Tests\TestCase
+class UserTest extends TestCase
 {
     protected $registration;
     protected $first_name;

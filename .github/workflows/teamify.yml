@@ -39,9 +39,6 @@ jobs:
         cd teamify
         php artisan migrate:fresh --seed
 
-    - name: Start dev server
-      run: sudo php -S localhost:80 -t teamify/public/ &
-
     - name: Execute tests
       run: |
         cd teamify

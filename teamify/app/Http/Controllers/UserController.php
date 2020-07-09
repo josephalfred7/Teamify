@@ -40,7 +40,7 @@ class UserController extends Controller
         $this->addNamedTeam($newTeamName);
     }
 
-    private function addNamedTeam($teamName) {
+    public function addNamedTeam($teamName) {
         $faker = Faker\Factory::create();
         DB::table('users')->insert([
             'first_name' => 'Dummy',
@@ -124,6 +124,13 @@ class UserController extends Controller
             $this->addTeam();
         }
 
+        $teamNames = $this->getTeamNameArray();
+
+        $teamNames = array_slice($teamNames, 0, $teamCount + $teamsNeeded);
+        $this->shuffleTeamSet($teamNames);
+    }
+
+    public function getTeamNameArray() {
         $teamNameResult = $this->getTeamNames();
         $teamNames = array();
 
@@ -131,8 +138,7 @@ class UserController extends Controller
             array_push($teamNames, $team->team_name);
         }
 
-        $teamNames = array_slice($teamNames, 0, $teamCount + $teamsNeeded);
-        $this->shuffleTeamSet($teamNames);
+        return $teamNames;
     }
 
     public function assignToTeam($email, $team) {

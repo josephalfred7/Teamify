@@ -237,11 +237,11 @@ In general they were happy with the product so far.  Their primary concern is ge
 
 **Sprint Goal:**  Get students on random teams after registration.  
 
-**Forecast:**  We forecasted 8 points for our velocity in this Sprint.  The top PBI in the initial backlog, "Instructor can create random teams", was rated at 5 points and therefore was broken down into smaller user stories.  We created three new stroies to replace the original story and decomposed these stories into tasks.  The total points of the new stories added to eight.  We believed this to be an agressive goal for this sprint given that we had completed 10 points in the previous sprint and there were two less days in this sprint.  The previous sprint had also occured over a weekend (no classes) when we had more time to devote to product work.  Applying our lessons learned and reusing a large amount of the architecture and test code setup in the last sprint, we were successful at achieving the eight point goal one day earlier than planned.  This was an accurate forecast, because our advance completion allowed us the time to implement a Continuous Integration and Continuous Delivery framework within our repository.   
+**Forecast:**  We forecasted 8 points for our velocity in this Sprint.  The top PBI in the initial backlog, "Instructor can create random teams", was rated at 5 points and therefore was broken down into smaller user stories.  We created three new stories to replace the original story and decomposed these stories into tasks.  The total points of the new stories added to eight.  We believed this to be an agressive goal for this sprint given that we had completed 10 points in the previous sprint and there were two less days in this sprint.  The previous sprint had also occured over a weekend (no classes) when we had more time to devote to product work.  Applying our lessons learned and reusing a large amount of the architecture and test code setup in the last sprint, we were successful at achieving the eight point goal one day earlier than planned.  This was an accurate forecast, because our advance completion allowed us the time to implement a Continuous Integration and Continuous Delivery framework within our repository.   
 
 **Sprint Planning:**
 
-As stated above, during Sprint planning we decomposed the PBIs at the top into Tasks to develop a shared understanding of the work required to complete them.  An initial PBI with a higher point value was split into smaller point valued PBIs (User Stories).  All stories in the the Sprint Backlog have size of less than half of the forecast velocity.  After story splitting, the specific stories that we pulled from the top of the product backlog into the sprint backlog for this sprint were:
+As stated above, during Sprint planning we decomposed the PBIs at the top into Tasks to develop a shared understanding of the work required to complete them.  An initial PBI with a higher point value was split into smaller point valued PBIs (User Stories).  All stories in the Sprint Backlog have size of less than half of the forecast velocity.  After story splitting, the specific stories that we pulled from the top of the product backlog into the sprint backlog for this sprint were:
 
 | Points | Story                                              |
 |--------|----------------------------------------------------|
@@ -260,13 +260,13 @@ Original File: https://github.com/josephalfred7/Teamify/blob/master/admin/9-JulS
 
 ![Burndown chart](admin/Burndown_9-Jul.png)
 
-We forecasted 8 points for the sprint.  Our chart has several lines.  First, the orange line indicates our actual progress.  We compared that with two other lines.  The dashed line shows what progress would have to be made if we completed the same number of points each day.  On the other hand, the blue shows our expected progress from the plan our team made during Sprint Planning.  The burndown chart shows that we were able to complete stories at ahigher rate than planned, which left us with a needed additional day to implement a Continuous Integration and Continuous Delivery framework within our repository.  
+We forecasted 8 points for the sprint.  Our chart has several lines.  First, the orange line indicates our actual progress.  We compared that with two other lines.  The dashed line shows what progress would have to be made if we completed the same number of points each day.  On the other hand, the blue shows our expected progress from the plan our team made during Sprint Planning.  The burndown chart shows that we were able to complete stories at a higher rate than planned, which left us with a needed additional day to implement a Continuous Integration and Continuous Delivery framework within our repository.  
 
 **Daily Scrums:**
 
 We've had daily Scrums after class each day of the sprint, which started July 6.  Logs of each Scrum have been recorded in separate files titled ``DailyScrum_<date>`` in the [admin folder](https://github.com/josephalfred7/Teamify/tree/master/admin) of our project repository.
 
-Each of these files is formatted to include three lists with the headings
+Each of these files is formatted to include three lists with the headings:  
 
 * What we did in the past 24 hours?
 * What are we going to do in the next 24 hours?
@@ -335,7 +335,7 @@ Rule: Shuffling leaves all students on teams
 ```
 We then automated this using a test in our PHPUnit test suite.  The test [registers](https://github.com/josephalfred7/Teamify/blob/master/teamify/tests/Feature/DisplayTeamsTest.php#L159) a new student without a team, [registers](https://github.com/josephalfred7/Teamify/blob/master/teamify/tests/Feature/DisplayTeamsTest.php#L164) an instructor, simulates the instructor [pressing](https://github.com/josephalfred7/Teamify/blob/master/teamify/tests/Feature/DisplayTeamsTest.php#L166) the "shuffle" button, and then [asserts](https://github.com/josephalfred7/Teamify/blob/master/teamify/tests/Feature/DisplayTeamsTest.php#L167) that all students are assigned to a team.
 
-At the end of the last sprint, we had 21 tests.  This sprint, we wrote 20 more test for a total of 41 tests.  As you can see below, by the end of the sprint, all our tests were passing:
+At the end of the last sprint, we had 21 tests.  This sprint, we wrote 20 more tests for a total of 41 tests.  As you can see below, by the end of the sprint, all our tests were passing:
 
 ![All tests are green](admin/AllTests.png)
 
@@ -345,7 +345,7 @@ We used Github Actions to implement a continuous integration and deployment syst
 
 All three jobs begin with a fresh Ubuntu instance.  In `unit_tests`, all tests are run that don't require a web server.  In `feature_tests`, a production-like environment is set up so that the remaining tests that do require a web server can run.  Finally, the `deployment` job connects to the production server and runs a [set of scripts](https://github.com/josephalfred7/Teamify/tree/master/deploy) to pull any updates and make configuration changes if necessary.
 
-We testsed the system to make sure it properly blocks deployment when any issue is found.  First, we purposefully committed a failing programmer test in the `unit_tests` suite, and you can see below that the `feature_tests` and `deployment` jobs were not run:
+We tested the system to make sure it properly blocks deployment when any issue is found.  First, we purposefully committed a failing programmer test in the `unit_tests` suite, and you can see below that the `feature_tests` and `deployment` jobs were not run:
 
 ![Failed programmer test prevents production-like testing and production deployment](admin/PipelineFailedProgrammerTest.png)
 

@@ -52,13 +52,8 @@ class UserController extends Controller
         ]);
     }
 
-    private function shuffleTeams() {
-        $teamNameResult = $this->getTeamNames();
-        $teamNames = array();
-
-        foreach($teamNameResult as $i => $team) {
-            array_push($teamNames, $team->team_name);
-        }
+    public function shuffleTeams() {
+        $teamNames =$this->getTeamNameArray();
 
         $this->shuffleTeamSet($teamNames);
     }
@@ -115,10 +110,17 @@ class UserController extends Controller
         return $count;
     }
 
+    public function getOptimalTeamCount($studentCount) {
+        if($studentCount == 1) {
+            return 1;
+        }
+        return round(($studentCount + 1) / 5.0);
+    }
+
     public function optimizeTeams(){
         $teamCount = count($this->getTeamNames());
         $studentCount = count($this->getOrderedStudents());
-        $teamsNeeded = round($studentCount/5.0) - $teamCount;
+        $teamsNeeded = $this->getOptimalTeamCount($studentCount) - $teamCount;
 
         for($i = 0; $i < $teamsNeeded; $i++){
             $this->addTeam();

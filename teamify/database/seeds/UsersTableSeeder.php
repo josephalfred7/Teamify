@@ -12,6 +12,7 @@ class UsersTableSeeder extends Seeder
      */
     public static $numStudents = 31;
     public static $numTeams = 3;
+    public static $knownEmail = 'nancy@smith.com';
 
     public function run()
     {
@@ -34,7 +35,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'first_name' => 'Nancy',
             'last_name' => 'Smith',
-            'email' => 'nancy@smith.com',
+            'email' => self::$knownEmail,
             'team_name' => '-',
             'password' => bcrypt('12345678')
         ]);

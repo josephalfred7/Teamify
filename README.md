@@ -341,16 +341,22 @@ At the end of the last sprint, we had 21 tests.  This sprint, we wrote 20 more t
 
 **Continuous integration and deployment:**
 
-We used Github Actions to implement a continuous integration and deployment system.  The workflow is stored [in our repository](https://github.com/josephalfred7/Teamify/blob/master/.github/workflows/teamify.yml).  This workflow is triggered whenever either of two conditions occur: 1) a push to master, or 2) a pull_request is opened to master.  It then executes two jobs in sequence, called build and deploy.  Execution of the entire workflow stops whenever an error is encountered.  For instance, if the build job fails, the deploy job will not be executed.
+We used Github Actions to implement a continuous integration and deployment system.  The workflow is stored [in our repository](https://github.com/josephalfred7/Teamify/blob/master/.github/workflows/teamify.yml).  This workflow is triggered whenever either of two conditions occur: 1) a push to master, or 2) a pull_request is opened to master.  It then executes three jobs in sequence.  Two jobs execute tests named after the default test suites included in our web framework - `unit_tests` and `feature_tests` - while the last job is `deployment`.  Execution of the entire workflow stops whenever an error is encountered.  If any test fails, production will not be updated by the `deployment` job.
 
-The build job begins with a fresh Ubuntu instance.  Third party dependencies are installed, an appropriate configuration file generated, the database is started and seeded with sample data, and small, single-threaded web server is started.  At that point, our test suite is executed.  If all tests pass, the job is "green," and workflow execution continues.
+All three jobs begin with a fresh Ubuntu instance.  In `unit_tests`, all tests are run that don't require a web server.  In `feature_tests`, a production-like environment is set up so that the remaining tests that do require a web server can run.  Finally, the `deployment` job connects to the production server and runs a [set of scripts](https://github.com/josephalfred7/Teamify/tree/master/deploy) to pull any updates and make configuration changes if necessary.
 
-The deploy job connects to our production server via ssh and runs deploy scripts locally there.  The first script pulls from the repository to make sure all files are up to date, and then calls another script with custom actions to run.  For now that script checks for and installs unmet dependencies as well as performs database updates with data migrations.
+We testsed the system to make sure it properly blocks deployment when any issue is found.  First, we purposefully committed a failing programmer test in the `unit_tests` suite, and you can see below that the `feature_tests` and `deployment` jobs were not run:
 
-Show evidence that workflow halts when tests fail (todo)
+![Failed programmer test prevents production-like testing and production deployment](admin/PipelineFailedProgrammerTest.png)
 
-Show evidence that application is deployed when tests pass (todo)
+Next, we purposefully fixed the programmer test and committed a failing customer test in the `feature_tests` suite, and you can see below that the `deployment` job was not run:
 
-Include badge to show passing status: ![Teamify](https://github.com/josephalfred7/Teamify/workflows/Teamify/badge.svg?branch=master)
+![Failed customer test prevents production deployment](admin/PipelineFailedCustomerTest.png)
+
+Finally, after fixing the customer test, all tests pass, and the product is deployed in production:
+
+![Passing all tests allows production deployment](admin/PipelinePassingTests.png)
+
+Github provides a dynamic badge to show the status of our current pipeline.  Hopefully it's green as you're reading this!  ![Teamify](https://github.com/josephalfred7/Teamify/workflows/Teamify/badge.svg?branch=master)
 
 **Sprint Review:**

@@ -133,7 +133,7 @@ All PBIs and Tasks are aggregated on a single board in Trello.  Initial PBIs hav
 
 Original File: https://github.com/josephalfred7/Teamify/blob/master/admin/6-JulSprintBurndown.xlsx   
 
-![Burndown chart](admin/Burndown.png)
+![Burndown chart](admin/Burndown_6-Jul.png)
 
 We forecasted 10 points for the sprint.  Our chart has several lines.  First, the orange line indicates our actual progress.  We compared that with two other lines.  The dashed line shows what progress would have to be made if we completed the same number of points each day.  On the other hand, the blue shows our expected progress from the plan our team made during Sprint Planning.
 
@@ -235,16 +235,34 @@ In general they were happy with the product so far.  Their primary concern is ge
 
 ## Final Sprint
 
-### Forecast
+**Sprint Goal:**  Get students on random teams after registration.  
 
+**Forecast:**  We forecasted 8 points for our velocity in this Sprint.  The top PBI in the initial backlog, "Instructor can create random teams", was rated at 5 points and therefore was broken down into smaller user stories.  We created three new stroies to replace the original story and decomposed these stories into tasks.  The total points of the new stories added to eight.  We believed this to be an agressive goal for this sprint given that we had completed 10 points in the previous sprint and there were two less days in this sprint.  The previous sprint had also occured over a weekend (no classes) when we had more time to devote to product work.  Applying our lessons learned and reusing a large amount of the architecture and test code setup in the last sprint, we were successful at achieving the eight point goal one day earlier than planned.  This was an accurate forecast, because our advance completion allowed us the time to implement a Continuous Integration and Continuous Delivery framework within our repository.   
 
-### Sprint backlog
+**Sprint Planning:**
 
+As stated above, during Sprint planning we decomposed the PBIs at the top into Tasks to develop a shared understanding of the work required to complete them.  An initial PBI with a higher point value was split into smaller point valued PBIs (User Stories).  All stories in the the Sprint Backlog have size of less than half of the forecast velocity.  After story splitting, the specific stories that we pulled from the top of the product backlog into the sprint backlog for this sprint were:
 
-### Burndown chart
+| Points | Story                                              |
+|--------|----------------------------------------------------|
+|   2    | Instructor can shuffle students into teams         |
+|   3    | Instructor can add new team                        |
+|   3    | Instructor can assign random (close to) full teams |
 
+**Product Backlog and Kanban Board:**  URL:  https://trello.com/b/i3THeXFj/teamify2020   
+All PBIs and Tasks are aggregated on a single board in Trello.  Initial PBIs have a yellow label and are not yet decomposed into Tasks.  PBIs that were placed in the Sprint Backlog have a green label and have been decomposed into Tasks.  Tasks have an orange label.  As Sprint Backlog items and Tasks have been put In Progress or have been Completed, they have been moved across the Kanban board into the corresponding columns.   
 
-### Daily Scrums
+**Additional material for this assignment:**  A single directory 'admin' in our git repository contains multiple supporting files for this assignment, explained below:  https://github.com/josephalfred7/Teamify/tree/master/admin   
+
+**Sprint Burndown Chart:**
+
+Original File: https://github.com/josephalfred7/Teamify/blob/master/admin/9-JulSprintBurndown.xlsx   
+
+![Burndown chart](admin/Burndown_9-Jul.png)
+
+We forecasted 8 points for the sprint.  Our chart has several lines.  First, the orange line indicates our actual progress.  We compared that with two other lines.  The dashed line shows what progress would have to be made if we completed the same number of points each day.  On the other hand, the blue shows our expected progress from the plan our team made during Sprint Planning.  The burndown chart shows that we were able to complete stories at ahigher rate than planned, which left us with a needed additional day to implement a Continuous Integration and Continuous Delivery framework within our repository.  
+
+**Daily Scrums:**
 
 We've had daily Scrums after class each day of the sprint, which started July 6.  Logs of each Scrum have been recorded in separate files titled ``DailyScrum_<date>`` in the [admin folder](https://github.com/josephalfred7/Teamify/tree/master/admin) of our project repository.
 
@@ -293,11 +311,13 @@ Here's a sample from 7/7/20:
 		- Eric is getting better performance with fewer devices connected to his network simultaneously.   
 
 
-### Mob programming
+**Mob programming:**
 
-![New screenshot of mob programming during final sprint](todo)
+Like in the last sprint, we mob programmed using screen sharing and remote control over Zoom during the implementation of all our PBIs.  We identified a couple of team members who had Internet connections best suited for hosting, and they became regular hosts as we took turns driving and navigating.
 
-### Test-first development
+![Mob programming during the final sprint](admin/MobProgramming2.png)
+
+**Test-first development:**
 
 As in the first sprint, we are building our product test-first.  For example, one of our solutions to a story this sprint was creating a button to add a new team.  The first acceptance criteria was that a user could indicate that they wanted a new team.  Accordingly, our first step in implementing the solution was to write a test asserting that the "Add team" button existed.  Since we hadn't implemented anything yet, it failed, and we proceeded to add the button to make it pass.
 
@@ -319,7 +339,7 @@ At the end of the last sprint, we had 21 tests.  This sprint, we wrote ??? more 
 
 ![New screenshot of all tests green](todo)
 
-### Continuous integration and deployment
+**Continuous integration and deployment:**
 
 We used Github Actions to implement a continuous integration and deployment system.  The workflow is stored [in our repository](https://github.com/josephalfred7/Teamify/blob/master/.github/workflows/teamify.yml).  This workflow is triggered whenever either of two conditions occur: 1) a push to master, or 2) a pull_request is opened to master.  It then executes two jobs in sequence, called build and deploy.  Execution of the entire workflow stops whenever an error is encountered.  For instance, if the build job fails, the deploy job will not be executed.
 
@@ -333,4 +353,4 @@ Show evidence that application is deployed when tests pass (todo)
 
 Include badge to show passing status: ![Teamify](https://github.com/josephalfred7/Teamify/workflows/Teamify/badge.svg?branch=master)
 
-### Sprint Review
+**Sprint Review:**

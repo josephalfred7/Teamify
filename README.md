@@ -360,3 +360,7 @@ Finally, after fixing the customer test, all tests pass, and the product is depl
 Github provides a dynamic badge to show the status of our current pipeline.  Hopefully it's green as you're reading this!  ![Teamify](https://github.com/josephalfred7/Teamify/workflows/Teamify/badge.svg?branch=master)
 
 **Sprint Review:**
+
+Here we are rehearsing for the Sprint Review with our slide deck:
+
+![Sprint reivew rehearsal](admin/Rehearsal.png)
